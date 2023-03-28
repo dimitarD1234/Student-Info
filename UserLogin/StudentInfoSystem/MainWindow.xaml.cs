@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace StudentInfoSystem
 {
@@ -20,7 +22,8 @@ namespace StudentInfoSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Student mockStudent = StudentData.testStudentsData().ElementAt(0);
+        public Student mockStudent = StudentData.testStudentsData().OrderBy(s=>s).FirstOrDefault();
+        public List<string> StudStatusChoices { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -134,5 +137,20 @@ namespace StudentInfoSystem
 
             MessageBox.Show("ALL TABS ARE CLEARED!");
         }
+
+        private void Button_Log_In(object sender, RoutedEventArgs e)
+        {
+            gr_box3.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Log_Out(object sender, RoutedEventArgs e)
+        {
+            gr_box3.Visibility = Visibility.Visible;
+        }
+
+        private void FillStudStatusChoices()
+        {
+        }
+
     }
 }

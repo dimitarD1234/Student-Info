@@ -31,5 +31,11 @@
         <Button Margin="636,352,26,84" Click="Button_Click">Disable All</Button>
         <Button Margin="446,352,213,84" Click="Button_Click_1">Enable All</Button>
         <Button Margin="280,352,379,84" Click="Button_Click_2">Clear All</Button>
+        <Button Margin="26,352,642,84" Click="Button_Log_Out">Log Out</Button>
+        <GroupBox x:Name="gr_box3">
+            <StackPanel>
+                <Button Height="439" Click="Button_Log_In">Log In</Button>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>

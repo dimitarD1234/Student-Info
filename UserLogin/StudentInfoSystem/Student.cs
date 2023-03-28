@@ -1,6 +1,10 @@
-﻿namespace StudentInfoSystem;
+﻿using System;
+using System.Windows.Controls;
+using System.Xml.Linq;
 
-public class Student
+namespace StudentInfoSystem;
+
+public class Student : IComparable<Student>
 {
     public string name;
     public string middleName;
@@ -31,5 +35,19 @@ public class Student
         this.course = course;
         this.stream = stream;
         this.group = group;
+    }
+
+    public int CompareTo(Student other)
+    {
+        // Sort by name alphabetically, then by age
+        int nameComparison = name.CompareTo(other.name);
+        if (nameComparison != 0)
+        {
+            return nameComparison;
+        }
+        else
+        {
+            return group.CompareTo(other.group);
+        }
     }
 }
